@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MatchPointsFragment"
+    >
+    <data>
+        <variable
+            name="viewModel"
+            type="com.melendez.forparcial.MainViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <TextView
+            android:id="@+id/team_a_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/small_gap"
+            android:text="@{viewModel.teamAName}"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+            app:layout_constraintBottom_toTopOf="@+id/score_team_a"
+            app:layout_constraintEnd_toEndOf="@+id/score_team_a"
+            app:layout_constraintStart_toStartOf="@+id/score_team_a"
+            tools:text="Team A" />
+
+
+        <TextView
+            android:id="@+id/score_team_a"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/small_gap"
+            android:text="@{viewModel.teamAScore.toString()}"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline2"
+            app:layout_constraintBottom_toTopOf="@+id/add_a_plus_one"
+            app:layout_constraintEnd_toEndOf="@+id/add_a_plus_one"
+            app:layout_constraintStart_toStartOf="@+id/add_a_plus_one"
+            tools:text="0" />
+
+        <TextView
+            android:id="@+id/team_b_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_gap"
+            android:text="@{viewModel.teamBName}"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline6"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline4"
+            tools:text="Team B" />
+
+        <TextView
+            android:id="@+id/score_team_b"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_gap"
+            android:text="@{viewModel.teamBScore.toString()}"
+            android:textAppearance="@style/TextAppearance.MaterialComponents.Headline2"
+            app:layout_constraintEnd_toEndOf="@+id/team_b_name"
+            app:layout_constraintStart_toStartOf="@+id/team_b_name"
+            app:layout_constraintTop_toBottomOf="@+id/team_b_name"
+            tools:text="0" />
+
+        <Button
+            android:id="@+id/add_b_plus_one"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/small_gap"
+            android:text="Añadir +1"
+            app:layout_constraintEnd_toEndOf="@+id/score_team_b"
+            app:layout_constraintStart_toStartOf="@+id/score_team_b"
+            app:layout_constraintTop_toBottomOf="@+id/score_team_b" />
+
+        <Button
+            android:id="@+id/add_a_plus_one"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/small_gap"
+            android:text="Añadir +1"
+            app:layout_constraintBottom_toTopOf="@+id/guideline4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.5" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
+

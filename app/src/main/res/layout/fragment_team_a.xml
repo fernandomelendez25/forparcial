@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".TeamAFragment">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.melendez.forparcial.MainViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+        <EditText
+            android:id="@+id/teamANameEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/small_gap"
+            android:layout_marginEnd="@dimen/small_gap"
+            android:hint="@string/hint_team_a"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="@={viewModel.teamAName}"/>
+
+        <Button
+            android:id="@+id/action_continue"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/action_continue"
+            app:layout_constraintEnd_toEndOf="@+id/teamANameEditText"
+            app:layout_constraintTop_toBottomOf="@+id/teamANameEditText" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

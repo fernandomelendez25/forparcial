@@ -1,0 +1,69 @@
+- JetPack Navigation
+
+Grafico de navegacion
+NavHost => fragmento
+NavController
+
+Dependencias:
+Para ViewModel = https://developer.android.com/jetpack/androidx/releases/activity?hl=es-419 => Para los ViewModels (usa ext {} para lo primero en build.gradle)
+
+ext {
+	activity_version = "1.4.0"
+}
+
+implementation "androidx.activity:activity-ktx:$activity_version"
+
+
+-Para fragmentos: https://developer.android.com/jetpack/androidx/releases/fragment?hl=es-419
+
+ext {
+	fragment_version = "1.4.1"
+}
+
+implementation "androidx.fragment:fragment-ktx:$fragment_version"
+    // Testing Fragments in Isolation
+    debugImplementation "androidx.fragment:fragment-testing:$fragment_version"
+
+- Para databinding: https://developer.android.com/jetpack/androidx/releases/databinding?hl=es-419
+
+android {
+    ...
+    buildFeatures {
+        dataBinding true
+    }
+}
+
+- Para navigation: https://developer.android.com/jetpack/androidx/releases/navigation?hl=es-419
+
+ext {
+	nav_version = "2.4.1"
+}
+
+implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+  implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+androidTestImplementation "androidx.navigation:navigation-testing:$nav_version"
+
+// en el principal, antes de los plugins y las ext metelo en el buildscript
+
+
+buildscript {
+    repositories {
+        google()
+    }
+    dependencies {
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
+    }
+
+	ext {
+
+	}
+}
+
+// en el gradle de los modulos
+
+plugins {
+  id 'androidx.navigation.safeargs.kotlin'
+}
+
+
+Nota: Deja los ext en medio de repositories y dependences, dentro del buildscript
